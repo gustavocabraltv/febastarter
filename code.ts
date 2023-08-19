@@ -44,8 +44,8 @@ figma.ui.onmessage = (msg) => {
       text.x = (frame.width - text.width) / 2;
       text.y = (frame.height - text.height) / 2;
       text.textAlignHorizontal = 'CENTER';
-
-
+      
+      figma.closePlugin()
 
     })()
   }
