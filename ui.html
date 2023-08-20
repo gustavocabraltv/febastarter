@@ -2,7 +2,11 @@
 <html>
 
 <head>
-<style>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
 
 body{
   margin: 0;
@@ -28,7 +32,7 @@ header {
 .beta {
   color: white;
   font-size: 8px;
-  font-family: 'Inter';
+  font-family: 'Inter', sans-serif;
   background-color: black;
   display: flex;
   align-items: center;
@@ -39,7 +43,7 @@ header {
 }
 
 .label-text {
-  font-family: Inter;
+  font-family: 'Inter', sans-serif;
   font-size: 11px;
   font-style: normal;
   font-weight: 400;
@@ -84,7 +88,7 @@ form {
 .form-label {
   color: var(--grey, #b2b2b2);
   /* Body — 11 Regular */
-  font-family: Inter;
+  font-family: 'Inter', sans-serif;
   font-size: 11px;
   font-style: normal;
   font-weight: 400;
@@ -132,7 +136,7 @@ select#investida {
 .preview-text {
   color: #979faa;
   /* Heading III — 13 Regular */
-  font-family: Inter;
+  font-family: 'Inter', sans-serif;
   font-size: 13px;
   font-style: normal;
   font-weight: 400;
@@ -176,7 +180,7 @@ select#investida {
 
 .cover-title {
   /* Body — 11 Regular */
-  font-family: Inter;
+  font-family: 'Inter', sans-serif;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -196,7 +200,7 @@ select#investida {
 }
 
 .abrahao-fontsize {
-  font-family: Inter;
+  font-family: 'Inter', sans-serif;
   font-size: 21px !important;
   color: white;
   text-align: center;
@@ -206,7 +210,7 @@ select#investida {
 }
 
 .coalize-fontsize {
-  font-family: Inter;
+  font-family: 'Inter', sans-serif;
   font-size: 24px !important;
   color: #1f2933;
   text-align: left;
@@ -245,7 +249,7 @@ function marca () {
 
 function updateSpanText() {
 const investida = document.getElementById("investida").value
-console.log('Valor atualizado:' + investida)
+
 const cover = document.querySelector('.cover');
 const span = document.querySelector('.cover-title');
 const coverTitle = document.querySelector('.cover-title');
@@ -318,18 +322,16 @@ if (input.value.length === 0) {
     brand.classList.add('active');
     
     if(investida === 'abrahao') {
-      brand.innerHTML = `${abrahaoLogo}`
-      brand.classList.add(`brand-abrahao`)
-      brand.classList.remove(`brand-coalize`)
-
-
+      brand.innerHTML = `${abrahaoLogo}`;
+      brand.className = 'brand brand-abrahao';
+      cover.className = 'cover abrahao-bg';
+      coverTitle.className='cover-title abrahao-fontsize'
 
     } else if(investida === 'coalize'){
       brand.innerHTML = `${coalizeLogo}`
-      brand.classList.add(`brand-coalize`)
-      brand.classList.remove(`brand-abrahao`)
-      
-
+      brand.className = 'brand brand-coalize';
+      cover.className = 'cover coalize-bg';
+      coverTitle.className='cover-title coalize-fontsize'
     } else {
       brand.innerHTML = "Logo padrão ou mensagem de erro"
     }
@@ -354,6 +356,8 @@ if (input.value.length === 0) {
 
   
   </script>
+
+
 </head>
 <body>
   <div class="container">
