@@ -23,10 +23,23 @@ const illustrationSVG = `
 
 // Receber mensagem da UI
 figma.ui.onmessage = (msg) => {
+
+  
   
   //  ___________________________________ ABRAHAO COVER FEBACAPITAL
   if (msg.type === 'abrahao') {
     (async () => {
+
+      const page1 = figma.root.findChild(page => page.name === "Page 1");
+      
+      if (page1) {
+        // Renomeia a página "Page 1" para "Cover"
+        page1.name = "Cover";
+      } else {
+        // Caso não exista a página "Page 1", cria uma nova página "Cover"
+        const coverPage = figma.createPage();
+        coverPage.name = "Cover";}
+
       
       
       const frame = figma.createFrame(); // Criação do quadro (frame)
@@ -149,6 +162,20 @@ figma.ui.onmessage = (msg) => {
     })()
   }
 
+   // Criação das páginas e quadros vazios
+   const pagesToCreate = ["Discovery", "Exploration", "Layout Final", "Lixeira"];
+   const frameWidth = 1400;
+   const frameHeight = 4000;
+
+   pagesToCreate.forEach((pageName) => {
+     const newPage = figma.createPage();
+     newPage.name = pageName;
+
+     const newFrame = figma.createFrame();
+     newFrame.name = "frame";
+     newFrame.resize(frameWidth, frameHeight);
+     newPage.appendChild(newFrame);
+   });
 
 
 
