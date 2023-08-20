@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <script>
+
+   
+
+
+    // Função para enviar mensagem ao clicar no botão "Criar"
+    function createText() {
+      const input = document.getElementById('titulo');
+      const title = input.value;
+      parent.postMessage({ pluginMessage: { type: 'create', title } }, '*');
+    }
+
+  
+
+  
+  </script>
+</head>
+<body>
+<input placeholder="insira aqui" class="titulo" id="titulo" type="text" />
+<span class="titulo"></span>
+
+</body>
+</html>

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    body{
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+   .container {
+    background-color: #f8f9fa;
+    width: 340px;
+  }
+  header {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  background-color: white;
+  border-bottom: 0.25px #f0f0f0 solid;
+  }
+  .beta {
+    font-family: 'Inter';
+    color: white;
+    font-size: 8px;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 8px;
+    font-weight: bold;
+    border-radius: 4px;
+  }
+
+
+.label-text {
+  font-family: Inter;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px; /* 127.273% */
+  letter-spacing: 0.11px;
+}
+
+.form-container {
+  padding: 16px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.submit {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  border-radius: 8px;
+  border: 0;
+  color: white;
+  background: black;
+}
+
+.form-input {
+  height: 38px;
+  padding: 0 12px;
+  border: 1px #f0f0f0 solid;
+  border-radius: 2px;
+  margin-top: 8px;
+}
+
+.form-input::placeholder {
+  color: #b2b2b2;
+  font-size: 12px;
+}
+
+.form-label {
+  color: var(--grey, #b2b2b2);
+  /* Body — 11 Regular */
+  font-family: Inter;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px; /* 127.273% */
+  letter-spacing: 0.11px;
+}
+.form-label:not(:first-child) {
+  margin-top: 16px;
+}
+
+#investida {
+  padding: 8px 8px;
+  border: 1px #f0f0f0 solid;
+  border-radius: 2px;
+  margin-top: 8px;
+}
+
+select#investida {
+  /* Esconda a seta padrão
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+   background: url('caminho-para-o-icone.svg') no-repeat right center;
+   */
+
+  /* Adicione um ícone customizado (pode ser uma imagem ou um ícone em fonte) */
+
+  background-size: 20px; /* Ajuste o tamanho do ícone conforme necessário */
+}
+
+.preview-line {
+  flex-grow: 1;
+  height: 1px;
+  background-color: #d6dbe0;
+  margin: 0 8px;
+}
+
+.preview-title {
+  display: flex;
+  align-items: center;
+  margin: 16px 0;
+}
+
+.preview-text {
+  color: #979faa;
+  /* Heading III — 13 Regular */
+  font-family: Inter;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px; /* 123.077% */
+  letter-spacing: 0.13px;
+}
+
+.cover {
+  height: 158px;
+  background-color: #f6f7f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  border-radius: 6px;
+}
+
+.preview-container {
+  padding: 8px 16px 24px;
+  background-color: white;
+}
+
+.preview-box {
+  padding: 16px;
+  border: 1px solid #cbcfd6;
+  border-radius: 8px;
+}
+
+.cover-header {
+  top: 8px;
+  position: absolute;
+
+  display: flex;
+  background-color: transparent;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0 8px;
+}
+
+.cover-title {
+  /* Body — 11 Regular */
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px; /* 127.273% */
+  letter-spacing: 0.11px;
+  color: var(--grey, #b2b2b2);
+}
+
+.abrahao-bg {
+  background-color: #c5001f;
+}
+.coalize-bg {
+  background-color: #f5f7fa;
+}
+.assinafy-bg {
+  background-color: #1749fd;
+}
+
+.abrahao-fontsize {
+  font-family: Inter;
+  font-size: 21px !important;
+  color: white;
+  text-align: center;
+  word-wrap: break-word;
+  width: 200px;
+  line-height: 26px;
+}
+
+.coalize-fontsize {
+  font-family: Inter;
+  font-size: 21px !important;
+  color: #1f2933;
+  text-align: center;
+  word-wrap: break-word;
+  width: 200px;
+  line-height: 26px;
+  font-weight: 500;
+}
+
+.brand {
+  position: absolute;
+  top: 15px;
+  display: none;
+}
+
+.brand.active {
+  display: block;
+}
+
+
+  </style>
+  <script>
+
+   
+
+
+    // Função para enviar mensagem ao clicar no botão "Criar"
+    function createText() {
+      const input = document.getElementById('titulo');
+      const title = input.value;
+      parent.postMessage({ pluginMessage: { type: 'create', title } }, '*');
+    }
+
+  
+   
+
+  
+  </script>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <input class="inputizin" id='inputizin' type="text" oninput={rodarConsole()}/>
+      <span class="testee" id="testee">okay</span>
+      <div class="feba">
+        <svg
+          width="56"
+          height="16"
+          viewBox="0 0 56 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g clip-path="url(#clip0_221_419)">
+            <path
+              d="M0.961481 0.316437H0V15.7001H3.43852V11.3001C5.89926 10.3061 8.53926 9.80088 11.2118 9.80088C11.2118 8.77421 11.2118 7.74755 11.2281 6.72088C8.57185 6.70458 5.93185 7.16088 3.43852 8.00829V3.41273H11.5378V0.316437H3.43852H0.961481V0.316437Z"
+              fill="black"
+            />
+            <path
+              d="M13.9327 0.316437H12.9712V15.7001H13.9327H16.4097H24.7045V12.5875H16.4097V9.49125H24.3623V6.41125H16.4097V3.41273H24.7045V0.316437H16.4097H13.9327Z"
+              fill="black"
+            />
+            <path
+              d="M35.6891 7.64968V7.42153C36.7158 7.30746 37.4817 6.94894 38.0032 6.37857C38.5084 5.8082 38.7691 5.05857 38.7691 4.14597C38.7691 3.26597 38.5735 2.53264 38.1987 1.96227C37.8239 1.3919 37.2535 0.984493 36.5039 0.707456C35.7543 0.446715 34.8254 0.300049 33.7335 0.300049H26.1558V15.6837H34.1084C35.2817 15.6837 36.2758 15.5045 37.058 15.1623C37.8402 14.82 38.4432 14.3312 38.8343 13.6956C39.2254 13.06 39.4209 12.3104 39.4209 11.463C39.4209 10.42 39.1113 9.55634 38.5084 8.83931C37.8565 8.15486 36.9276 7.74746 35.6891 7.64968ZM29.578 3.41264H33.4891C34.1246 3.41264 34.5809 3.51042 34.8743 3.68968C35.1676 3.86894 35.3143 4.27634 35.3143 4.9119C35.3143 5.51486 35.1676 5.90597 34.8743 6.10153C34.5809 6.29709 34.1084 6.39486 33.4728 6.39486H29.5617V3.41264H29.578ZM35.4121 12.2941C35.0698 12.4897 34.5972 12.5875 33.9617 12.5875H29.578V9.19783H33.9617C34.5972 9.19783 35.0861 9.2956 35.4121 9.49116C35.738 9.68671 35.9009 10.1593 35.9009 10.9089C35.9172 11.6423 35.7543 12.0986 35.4121 12.2941Z"
+              fill="black"
+            />
+            <path
+              d="M52.1151 15.7001H55.8632L50.1921 0.316437H45.1892L39.5181 15.7001H43.1033L45.1892 10.0127C47.0632 10.2735 48.8884 10.795 50.6158 11.5609L52.1151 15.7001ZM46.2647 7.0631L46.3625 6.80236L47.5358 3.33125H47.764L48.8884 6.80236L49.2307 7.76384C48.2529 7.47051 47.2588 7.22606 46.2647 7.0631Z"
+              fill="black"
+            />
+          </g>
+          <defs>
+            <clipPath id="clip0_221_419">
+              <rect
+                width="56"
+                height="15.4"
+                fill="white"
+                transform="translate(0 0.300003)"
+              />
+            </clipPath>
+          </defs>
+        </svg>
+      </div>
+      <span class="beta"> BETA </span>
+    </header>
+  </div>
+<!--FIM HEADER-->
+
+<!--INICIO DO RESTANTE-->
+
+<div class="form-container">
+  <form class="form">
+    <label for="investida" class="form-label">Investida *</label>
+    <select id="investida" name="investida">
+      <option value="abrahao">Abrahão</option>
+      <option value="coalize">Coalize</option>
+      <option value="assinafy">Assinafy</option>
+      <option value="feba">Feba</option>
+    </select>
+
+    <label for="titulo" class="form-label">Título do projeto</label>
+    <input
+      type="text"
+      id="titulo"
+      name="titulo"
+      class="form-input"
+      placeholder="My awesome project"
+      
+    />
+    <br />
+ 
+    <button class="submit" type="submit" onclick='createText()'>Get Started 🚀</button>
+  </form>
+</div>
+<div class="preview-container">
+  <div class="preview-title">
+    <div class="preview-line"></div>
+    <span class="preview-text">Preview</span>
+    <div class="preview-line"></div>
+  </div>
+  <div class="preview-box">
+    <div class="cover">
+      <div class="brand">
+        <svg
+          width="60"
+          height="19"
+          viewBox="0 0 60 19"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g clip-path="url(#clip0_221_493)">
+            <mask
+              id="mask0_221_493"
+              style="mask-type: luminance"
+              maskUnits="userSpaceOnUse"
+              x="0"
+              y="3"
+              width="60"
+              height="13"
+            >
+              <path d="M60 3.42856H0V15.4286H60V3.42856Z" fill="white" />
+            </mask>
+            <g mask="url(#mask0_221_493)">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M7.94567 13.2515V15.3179H12.0495V8.0417C12.0495 6.77562 11.5256 5.61144 10.6815 4.78194C9.83751 3.93792 8.6733 3.42856 7.37811 3.42856H0V7.47414H2.09556C1.80451 7.64879 1.51346 7.86706 1.26607 8.11447C-0.40747 9.7589 -0.40747 12.422 1.26607 14.081C2.93961 15.7254 5.64639 15.7254 7.31991 14.081C7.55276 13.8191 7.77103 13.5425 7.94567 13.2515ZM22.6005 5.13114H23.852V8.30356C24.1576 7.85244 24.9871 7.38676 25.9039 7.38676C27.7084 7.38676 28.5234 8.78382 28.5234 10.4719C28.5234 12.16 27.7375 13.7171 25.9185 13.7171C25.0016 13.7171 24.0994 13.2514 23.7792 12.8148L23.6191 13.557H22.2221V5.49496C22.2366 5.29122 22.3967 5.13114 22.6005 5.13114ZM23.8374 10.5301C23.8374 11.5633 24.4486 12.1891 25.4091 12.1891C26.4132 12.1891 26.8353 11.5779 26.8353 10.5301C26.8353 9.49687 26.4132 8.84202 25.4091 8.84202C24.405 8.84202 23.8374 9.49687 23.8374 10.5301ZM30.9532 7.54692H29.7744C29.5707 7.54692 29.4106 7.70699 29.3815 7.91073V13.5425H31.026V10.1809C31.2006 9.29322 31.5789 8.68203 32.2484 8.68203C32.6267 8.68203 32.8741 8.9003 32.976 9.54063L34.3585 8.8421C34.242 8.0126 33.8346 7.40137 32.8159 7.40137C32.0301 7.40137 31.3752 7.76519 30.9532 8.55106V7.54692ZM41.3148 5.13114H42.5808V8.27446C42.93 7.75057 43.5703 7.37223 44.4583 7.37223C45.666 7.37223 46.5681 8.02709 46.5681 9.395V13.5279H44.9529V9.87526C44.9529 9.08939 44.6764 8.72562 43.8613 8.72562C43.2647 8.72562 42.7555 9.11853 42.5663 9.75882V13.5425H40.9219V5.49496C40.9364 5.29122 41.0965 5.13114 41.3148 5.13114ZM53.568 10.6612C53.568 12.3638 54.7616 13.7027 56.7694 13.7027C58.7923 13.7027 60.0004 12.3638 59.9859 10.6612C59.9859 8.6093 58.6179 7.37232 56.7694 7.37232C54.9214 7.37232 53.568 8.6093 53.568 10.6612ZM55.227 10.5884C55.227 9.54067 55.8381 8.84214 56.7694 8.84214C57.7157 8.84214 58.3123 9.54067 58.3123 10.5884C58.3123 11.4907 57.7736 12.262 56.7694 12.262C55.7657 12.262 55.227 11.4907 55.227 10.5884ZM18.1471 7.54687H18.0744H16.6482C16.4445 7.54687 16.2699 7.70694 16.2699 7.91069V8.82749H18.0453C19.1221 8.82749 19.6315 9.00213 19.6315 10.2682C19.3259 9.88983 18.7001 9.65699 17.8269 9.65699C16.6046 9.65699 15.5131 10.2391 15.5131 11.6361C15.5131 13.0331 16.4299 13.7026 17.7396 13.7026C18.671 13.7026 19.4132 13.3824 19.7916 12.9022L19.8934 13.557H21.2177V10.6466C21.2177 8.4782 20.3445 7.54687 18.1471 7.54687ZM18.3363 12.5093C17.7105 12.5093 17.0411 12.3347 17.0411 11.6507C17.0411 10.9667 17.6378 10.763 18.3363 10.763C19.0639 10.763 19.6897 11.0249 19.6897 11.6216C19.6897 12.1891 19.093 12.5093 18.3363 12.5093ZM36.7887 7.54692H36.8615C39.0444 7.54692 39.9321 8.47829 39.9175 10.6466V13.5571H38.5932L38.4914 12.9023C38.113 13.3825 37.3708 13.7026 36.4395 13.7026C35.1297 13.7026 34.2129 13.0332 34.2129 11.6362C34.2129 10.2391 35.3044 9.65703 36.5268 9.65703C37.4 9.65703 38.0257 9.88987 38.3313 10.2682C38.3313 9.00217 37.822 8.82753 36.7451 8.82753H34.9842V7.91073C34.9842 7.70699 35.1589 7.54692 35.3626 7.54692H36.7887ZM35.7555 11.6507C35.7555 12.3347 36.4249 12.5093 37.0507 12.5093C37.8074 12.5093 38.4041 12.1892 38.4041 11.6216C38.4041 11.025 37.7783 10.763 37.0507 10.763C36.3522 10.763 35.7555 10.9667 35.7555 11.6507ZM49.8716 7.54687H49.7991H48.3729C48.1693 7.54687 47.9944 7.70694 47.9944 7.91069V8.82749H49.7554C50.8324 8.82749 51.3416 9.00213 51.3416 10.2682C51.036 9.88983 50.4103 9.65699 49.5369 9.65699C48.3146 9.65699 47.2234 10.2391 47.2234 11.6361C47.2234 13.0331 48.1401 13.7026 49.4499 13.7026C50.3811 13.7026 51.1234 13.3824 51.5019 12.9022L51.6034 13.557H52.9277V10.6466C52.9277 8.4782 52.0547 7.54687 49.8716 7.54687ZM50.061 12.5093C49.4353 12.5093 48.7659 12.3347 48.7659 11.6507C48.7659 10.9667 49.3624 10.763 50.061 10.763C50.7887 10.763 51.4144 11.0249 51.4144 11.6216C51.3999 12.1891 50.8179 12.5093 50.061 12.5093ZM51.5306 6.14986H49.1293C48.9111 6.14986 48.7509 6.30997 48.7509 6.51367V7.02303H51.1521C51.3557 7.02303 51.5306 6.86296 51.5306 6.65922V6.14986Z"
+                fill="white"
+              />
+            </g>
+          </g>
+          <defs>
+            <clipPath id="clip0_221_493">
+              <rect width="60" height="18.8571" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+      </div>
+      <div class="cover-header">
+        <div class="icon-left">
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 28 28"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M2.73438 5.54472C2.73438 3.99179 3.99198 2.73419 5.5449 2.73419H22.0975C23.6505 2.73419 24.9081 3.99179 24.9081 5.54472V22.0974C24.9081 23.6503 23.6505 24.9079 22.0975 24.9079H5.5449C3.99198 24.9079 2.73438 23.6503 2.73438 22.0974V5.54472Z"
+              stroke="#D2D7DB"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M14.4787 11.0331L14.4636 11.0294L11.3513 10.1394L13.7018 12.4975C13.7521 12.49 13.7999 12.4862 13.8502 12.4862C14.4259 12.4862 14.8935 12.9551 14.8935 13.532C14.8935 14.1103 14.4259 14.5779 13.8502 14.5779C13.2732 14.5779 12.8069 14.1103 12.8069 13.532C12.8069 13.483 12.8094 13.4353 12.8169 13.3875L10.4739 11.0407L11.3085 13.9569L11.3211 14.0034L11.3311 14.0524C11.57 15.2277 12.6095 16.1089 13.8477 16.1089C14.1317 16.1089 14.4007 16.0636 14.6521 15.9807L15.39 15.7368L15.938 16.2861L16.8242 17.1748L17.508 16.4898L16.603 15.5847L16.065 15.0442L16.2963 14.3152C16.3742 14.07 16.417 13.8073 16.417 13.532C16.417 12.3329 15.5999 11.3235 14.4938 11.0369L14.4787 11.0331ZM19.2842 16.4898L17.7117 18.0648L16.823 18.9547L15.9355 18.0648L15.0468 17.1736C14.6697 17.2993 14.2662 17.3659 13.8464 17.3659C11.9974 17.3659 10.4538 16.0511 10.098 14.3026L8.69019 9.38017L8.28418 7.95599L9.70836 8.36326L14.8093 9.82138C16.4559 10.2488 17.674 11.7484 17.674 13.532C17.674 13.9381 17.6111 14.329 17.4942 14.696L19.2842 16.4898Z"
+              fill="#C1C6CA"
+            />
+          </svg>
+        </div>
+        <div class="icon">
+          <svg
+            width="27"
+            height="28"
+            viewBox="0 0 27 28"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M2.66064 5.54472C2.66064 3.99179 3.91825 2.73419 5.47117 2.73419H22.0238C23.5767 2.73419 24.8343 3.99179 24.8343 5.54472V22.0974C24.8343 23.6503 23.5767 24.9079 22.0238 24.9079H5.47117C3.91825 24.9079 2.66064 23.6503 2.66064 22.0974V5.54472Z"
+              stroke="#C1C6CA"
+            />
+            <path
+              d="M20.2299 12.2899C20.1703 12.1062 20.058 11.9441 19.9069 11.8238C19.7559 11.7034 19.5728 11.6302 19.3804 11.6132L15.7271 11.2983L14.2951 7.8929C14.2205 7.71422 14.0948 7.56159 13.9337 7.45423C13.7725 7.34687 13.5832 7.28958 13.3896 7.28958C13.196 7.28958 13.0067 7.34687 12.8456 7.45423C12.6845 7.56159 12.5587 7.71422 12.4842 7.8929L11.0564 11.2983L7.39887 11.6151C7.20574 11.6313 7.0217 11.7042 6.86983 11.8246C6.71796 11.945 6.60502 12.1076 6.54517 12.2919C6.48532 12.4762 6.48123 12.6741 6.53341 12.8608C6.58559 13.0474 6.69172 13.2145 6.83848 13.3411L9.61334 15.766L8.78168 19.367C8.73771 19.5554 8.75025 19.7526 8.81776 19.934C8.88526 20.1153 9.00473 20.2727 9.16122 20.3866C9.3177 20.5004 9.50427 20.5656 9.6976 20.5739C9.89092 20.5823 10.0824 20.5335 10.2482 20.4336L13.3853 18.5267L16.5293 20.4336C16.695 20.5335 16.8865 20.5823 17.0798 20.5739C17.2731 20.5656 17.4597 20.5004 17.6162 20.3866C17.7727 20.2727 17.8922 20.1153 17.9597 19.934C18.0272 19.7526 18.0397 19.5554 17.9957 19.367L17.1647 15.7623L19.9389 13.3411C20.0857 13.2141 20.1916 13.0465 20.2434 12.8595C20.2951 12.6724 20.2905 12.4743 20.2299 12.2899ZM19.2937 12.5974L16.5194 15.0186C16.3844 15.136 16.284 15.2881 16.2289 15.4584C16.1738 15.6286 16.1662 15.8107 16.2069 15.985L17.0404 19.5921L13.899 17.6852C13.7457 17.5918 13.5697 17.5425 13.3902 17.5425C13.2108 17.5425 13.0348 17.5918 12.8815 17.6852L9.74436 19.5921L10.5723 15.9874C10.613 15.8132 10.6054 15.6311 10.5504 15.4608C10.4953 15.2905 10.3949 15.1385 10.2598 15.021L7.48437 12.6011C7.48414 12.5993 7.48414 12.5974 7.48437 12.5956L11.1407 12.2794C11.3192 12.2637 11.4901 12.1995 11.6348 12.0938C11.7795 11.9881 11.8926 11.8449 11.9619 11.6797L13.3896 8.27859L14.8167 11.6797C14.886 11.8449 14.9992 11.9881 15.1439 12.0938C15.2886 12.1995 15.4594 12.2637 15.6379 12.2794L19.2949 12.5956V12.5999L19.2937 12.5974Z"
+              fill="#C1C6CA"
+            />
+          </svg>
+        </div>
+      </div>
+      <span class="cover-title">Insira um título para visualizar</span>
+    </div>
+  </div>
+</div>
+
+<!--FIM DO RESTANTE-->
+
+  <!-- ANTIGO 
+  <input type="text" id="titulo" placeholder="Insira o título aqui">
+  <button onclick={createText()}>Criar</button>
+  -->
+  <script src="script.js"></script>
+</body>
+</html>

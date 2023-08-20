@@ -8,6 +8,8 @@ figma.showUI(__html__,  { width: 340, height: 550, title: "Feba Starter" });
 figma.ui.onmessage = (msg) => {
   if (msg.type === 'create') {
     (async () => {
+      
+
       const frame = figma.createFrame(); // Criação do quadro (frame)
       frame.name = "cover";
       frame.resize(1069, 588); // Definindo o tamanho do quadro
