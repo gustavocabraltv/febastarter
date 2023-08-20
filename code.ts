@@ -35,11 +35,7 @@ figma.ui.onmessage = (msg) => {
       if (page1) {
         // Renomeia a página "Page 1" para "Cover"
         page1.name = "Cover";
-      } else {
-        // Caso não exista a página "Page 1", cria uma nova página "Cover"
-        const coverPage = figma.createPage();
-        coverPage.name = "Cover";}
-
+      } 
       
       
       const frame = figma.createFrame(); // Criação do quadro (frame)
@@ -54,7 +50,7 @@ figma.ui.onmessage = (msg) => {
       // Load the font in the text node before setting the characters
       await figma.loadFontAsync({ family: "Plus Jakarta Sans", style: "ExtraBold" }); // Load "Inter" font
       text.fontName = { family: "Plus Jakarta Sans", style: "ExtraBold" }; // Set font to "Inter"
-      const title = msg.title || "Bê-a-bá\nRedes Sociais!";
+      const title = msg.title || "Título aqui!";
       text.characters = title;
       // Set bigger font size and red color
       text.fontSize = 72;
@@ -78,11 +74,6 @@ figma.ui.onmessage = (msg) => {
       text.x = (frame.width - text.width) / 2;
       text.y = (frame.height - text.height) / 2;
       text.textAlignHorizontal = 'CENTER';
-      
-
-
-
-
 
       figma.closePlugin()
       figma.notify('Gerado com sucesso, bom trabalho! ✨')
@@ -92,8 +83,16 @@ figma.ui.onmessage = (msg) => {
   } else if (msg.type === 'coalize'){
     (async () => {
       
+      const page1 = figma.root.findChild(page => page.name === "Page 1");
       
+      if (page1) {
+        // Renomeia a página "Page 1" para "Cover"
+        page1.name = "Cover";
+      } 
+
+        
       const frame = figma.createFrame(); // Criação do quadro (frame)
+
       frame.name = "cover";
       frame.resize(1069, 588); // Definindo o tamanho do quadro
       frame.backgrounds = [{ type: 'SOLID', color: {
@@ -157,25 +156,38 @@ figma.ui.onmessage = (msg) => {
 
 
       figma.closePlugin()
-      figma.notify('Gerado com sucesso, bom trabalho! ✨')
+      figma.notify('Tenha um bom trabalho! ✨')
 
     })()
   }
 
-   // Criação das páginas e quadros vazios
-   const pagesToCreate = ["Discovery", "Exploration", "Layout Final", "Lixeira"];
-   const frameWidth = 1400;
-   const frameHeight = 4000;
 
-   pagesToCreate.forEach((pageName) => {
-     const newPage = figma.createPage();
-     newPage.name = pageName;
+  const pagesToCheck = ["Discovery", "Exploration", "Layout Final", "Lixeira"];
+  pagesToCheck.forEach((pageName) => {
+    const existingPage = figma.root.findChild(page => page.name === pageName);
+    if (existingPage) {
+      // Página já existe, você pode adicionar um aviso aqui se desejar
+      figma.notify(`🟠 Você já criou as Pages.`);
+    } else {
+       // Criação das páginas e quadros vazios
+        const pagesToCreate = ["Discovery", "Exploration", "Layout Final", "Lixeira"];
+        const frameWidth = 1400;
+        const frameHeight = 4000;
 
-     const newFrame = figma.createFrame();
-     newFrame.name = "frame";
-     newFrame.resize(frameWidth, frameHeight);
-     newPage.appendChild(newFrame);
-   });
+        pagesToCreate.forEach((pageName) => {
+          const newPage = figma.createPage();
+          newPage.name = pageName;
+
+          const newFrame = figma.createFrame();
+          newFrame.name = "frame";
+          newFrame.resize(frameWidth, frameHeight);
+          newPage.appendChild(newFrame);
+        });
+    }
+  });
+
+  
+
 
 
 

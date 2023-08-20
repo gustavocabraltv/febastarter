@@ -244,6 +244,9 @@ select#investida {
   display: none;
 }
 
+
+::-webkit-validation-bubble-message { display: none; }
+
   </style>
   <script>
 
@@ -359,6 +362,17 @@ if (input.value.length === 0) {
       } 
     }
 
+    function validateForm() {
+        var tituloInput = document.getElementById("titulo");
+        if (tituloInput.value === "") {
+            alert("Por favor, preencha o campo Título do projeto.");
+            return false; // Impede o envio do formulário
+        }
+        // Se tudo estiver válido, o formulário será enviado
+        return true;
+    }
+
+
   
   </script>
 
@@ -409,27 +423,29 @@ if (input.value.length === 0) {
     </header>
 
     <div class="form-container">
-      <form class="form">
+      <form class="form" onsubmit="return createText()">
         <label for="investida" class="form-label">Investida *</label>
         <select id="investida" name="investida" onchange="marca()">
-          <option value="abrahao">Abrahão</option>
-          <option value="coalize">Coalize</option>
-          <option value="assinafy">Assinafy</option>
-          <option value="feba">Feba</option>
+            <option value="abrahao">Abrahão</option>
+            <option value="coalize">Coalize</option>
+            <option value="assinafy">Assinafy</option>
+            <option value="feba">Feba</option>
         </select>
-
+    
         <label for="titulo" class="form-label">Título do projeto</label>
         <input
-          type="text"
-          id="titulo"
-          name="titulo"
-          class="form-input"
-          placeholder="My awesome project"
-          oninput="updateSpanText()"
+            type="text"
+            id="titulo"
+            name="titulo"
+            class="form-input"
+            placeholder="My awesome project"
+            oninput="updateSpanText()"
+
         />
         <br />
-        <button class="submit" type="submit" onclick="createText()">Get Started 🚀</button>
-      </form>
+        <button class="submit" type="submit">Get Started 🚀</button>
+    </form>
+    
     </div>
     <div class="preview-container">
       <div class="preview-title">
