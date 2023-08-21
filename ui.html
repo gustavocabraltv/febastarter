@@ -8,10 +8,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
 
+:root {
+  --background-gradient: linear-gradient(30deg, #f39c12 30%, #f1c40f);
+  --gray: #34495e;
+  --darkgray: #2c3e50;
+}
+
 body{
   margin: 0;
   padding: 0;
-  
+  box-sizing: border-box;
 }
 button {
   cursor: pointer;
@@ -25,7 +31,7 @@ header {
 }
 
 .container {
-      background-color: #F7F8F9;
+      background-color: #F6F7F8;
 
     }
 
@@ -78,6 +84,14 @@ form {
   border: 1px #f0f0f0 solid;
   border-radius: 2px;
   margin-top: 8px;
+  box-sizing: border-box;
+
+}
+
+.form-input:focus{
+  border: 1px #33A3FA solid;
+  outline: none;
+  box-sizing: border-box;
 }
 
 .form-input::placeholder {
@@ -99,31 +113,14 @@ form {
   margin-top: 16px;
 }
 
-#investida {
-  padding: 8px 8px;
-  border: 1px #f0f0f0 solid;
-  border-radius: 2px;
-  margin-top: 8px;
-}
 
-select#investida {
-  /* Esconda a seta padrão
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
 
-   background: url('caminho-para-o-icone.svg') no-repeat right center;
-   */
 
-  /* Adicione um ícone customizado (pode ser uma imagem ou um ícone em fonte) */
-
-  background-size: 20px; /* Ajuste o tamanho do ícone conforme necessário */
-}
 
 .preview-line {
   flex-grow: 1;
   height: 1px;
-  background-color: #d6dbe0;
+  background-color: #E9EAEB;
   margin: 0 8px;
 }
 
@@ -173,7 +170,7 @@ select#investida {
 
 .preview-box {
   padding: 16px;
-  border: 1px solid #cbcfd6;
+  border: 1px solid #E9EAEB;
   border-radius: 8px;
 }
 
@@ -246,6 +243,57 @@ select#investida {
 
 
 ::-webkit-validation-bubble-message { display: none; }
+
+
+select {
+  /* Reset Select */
+  appearance: none;
+  outline: 0;
+  border: 0;
+  box-shadow: none;
+  /* Personalize */
+  flex: 1;
+  padding: 0 1em;
+  color: black;
+  background-color: white;
+  background-image: none;
+  cursor: pointer;
+  border: #EEEEEE 1px solid;
+  border-radius: 2px;
+}
+/* Remove IE arrow */
+select::-ms-expand {
+  display: none;
+}
+/* Custom Select wrapper */
+.select {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 36px;
+  border-radius: .25em;
+  overflow: hidden;
+  margin-top: 8px;
+  
+}
+/* Arrow */
+.select::after {
+  content: '';
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  width: 4.5px;
+  height: 4.5px;
+  margin-bottom: 20px;
+  border-right: 1.6px solid #000;
+  border-bottom: 1.6px solid #000;
+  position: absolute;
+  top: 13px;
+  right: 15px;
+}
+/* Transition */
+
+
+
 
   </style>
   <script>
@@ -425,12 +473,12 @@ if (input.value.length === 0) {
     <div class="form-container">
       <form class="form" onsubmit="return createText()">
         <label for="investida" class="form-label">Investida *</label>
-        <select id="investida" name="investida" onchange="marca()">
+        <div class="select">
+          <select id="investida" name="investida" onchange="marca()">
             <option value="abrahao">Abrahão</option>
             <option value="coalize">Coalize</option>
-            <option value="assinafy">Assinafy</option>
-            <option value="feba">Feba</option>
         </select>
+        </div>
     
         <label for="titulo" class="form-label">Título do projeto</label>
         <input

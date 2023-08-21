@@ -162,7 +162,14 @@ figma.ui.onmessage = (msg) => {
   }
 
 
-  const pagesToCheck = ["Discovery", "Exploration", "Layout Final", "Lixeira"];
+  const pagesToCheck = [  "✏️ Visual Research", 
+  "🔎 User Research", 
+  "--------------------",
+  "💡 Discovery", 
+  "--------------------",
+  "⚡ Prototype",
+  "🎨 Design", 
+  "💻 Ready for development"];  
   pagesToCheck.forEach((pageName) => {
     const existingPage = figma.root.findChild(page => page.name === pageName);
     if (existingPage) {
@@ -170,7 +177,17 @@ figma.ui.onmessage = (msg) => {
       figma.notify(`🟠 Você já criou as Pages.`);
     } else {
        // Criação das páginas e quadros vazios
-        const pagesToCreate = ["Discovery", "Exploration", "Layout Final", "Lixeira"];
+        const pagesToCreate = [ 
+          "✏️ Visual Research", 
+          "🔎 User Research", 
+          "--------------------",
+          "💡 Discovery", 
+          "--------------------",
+          "⚡ Prototype",
+          "🎨 Design", 
+          "💻 Ready for development"
+        
+        ];
         const frameWidth = 1400;
         const frameHeight = 4000;
 
